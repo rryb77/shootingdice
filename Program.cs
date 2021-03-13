@@ -17,39 +17,31 @@ namespace ShootingDice
 
             SmackTalkingPlayer smackTalker = new SmackTalkingPlayer();
             smackTalker.Name = "Joe";
+
             OneHigherPlayer higherRoller = new OneHigherPlayer();
             higherRoller.Name = "Cheater";
-            smackTalker.Play(higherRoller);
-            higherRoller.Play(smackTalker);
-
-            Console.WriteLine("-------------------");
 
             HumanPlayer human = new HumanPlayer();
             human.Name = "Ryan";
+
             CreativeSmackTalkingPlayer haha = new CreativeSmackTalkingPlayer();
+            haha.Name = "Ronald";
+
             SoreLoserPlayer madchad = new SoreLoserPlayer();
             madchad.Name = "Chad";
 
             Player player3 = new Player();
             player3.Name = "Wilma";
 
-            human.Play(madchad);
-            madchad.Play(human);
-
-            Console.WriteLine("-------------------");
 
             Player large = new LargeDicePlayer();
-
-            haha.Name = "Walter";
             large.Name = "Bigun Rollsalot";
 
-            haha.Play(large);
-            large.Play(haha);
-
-            Console.WriteLine("-------------------");
+            SoreLoserUpperHalfPlayer sorecheater = new SoreLoserUpperHalfPlayer();
+            sorecheater.Name = "Walter";
 
             List<Player> players = new List<Player>() {
-                player1, player2, player3, large, smackTalker, higherRoller, haha, madchad
+                player1, player2, player3, large, smackTalker, higherRoller, haha, madchad, sorecheater
             };
 
             PlayMany(players);
@@ -78,10 +70,41 @@ namespace ShootingDice
             {
                 Console.WriteLine("-------------------");
 
+
                 // Make adjacent players play noe another
                 Player player1 = shuffledPlayers[i];
                 Player player2 = shuffledPlayers[i + 1];
-                player1.Play(player2);
+
+                try
+                {
+                    player1.Play(player2);
+                }
+                catch (Exception ex)
+                {
+                    if (ex.Message == "angry")
+                    {
+                        Console.WriteLine(@"
+                (( _______
+     _______     /\O    O\
+    /O     /\   /  \      \
+   /   O  /O \ / O  \O____O\ ))
+((/_____O/    \\    /O     /
+  \O    O\    / \  /   O  /
+   \O    O\ O/   \/_____O/
+    \O____O\/ ))          ))
+  ((
+                ");
+                        Console.WriteLine("I CAN'T STAND LOSING!!!");
+                        continue;
+                    }
+
+                    if (ex.Message == "cheater angry")
+                    {
+                        Console.WriteLine("NOOOOOOOOOOOOOOOO! I NEVER LOSE!");
+                        continue;
+                    }
+                }
+
             }
         }
     }

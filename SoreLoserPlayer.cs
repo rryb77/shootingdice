@@ -22,17 +22,7 @@ namespace ShootingDice
             }
             else
             {
-                throw new InvalidOperationException(@"
-                (( _______
-     _______     /\O    O\
-    /O     /\   /  \      \
-   /   O  /O \ / O  \O____O\ ))
-((/_____O/    \\    /O     /
-  \O    O\    / \  /   O  /
-   \O    O\ O/   \/_____O/
-    \O____O\/ ))          ))
-  ((
-                ");
+                throw new Exception("angry");
             }
         }
     }
