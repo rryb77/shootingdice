@@ -37,11 +37,14 @@ namespace ShootingDice
             Player large = new LargeDicePlayer();
             large.Name = "Bigun Rollsalot";
 
+            UpperHalfPlayer lucky = new UpperHalfPlayer();
+            lucky.Name = "Lucy";
+
             SoreLoserUpperHalfPlayer sorecheater = new SoreLoserUpperHalfPlayer();
             sorecheater.Name = "Walter";
 
             List<Player> players = new List<Player>() {
-                player1, player2, player3, large, smackTalker, higherRoller, haha, madchad, sorecheater
+                player1, player2, player3, large, smackTalker, higherRoller, haha, madchad, sorecheater, lucky
             };
 
             PlayMany(players);
